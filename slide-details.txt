@@ -4,7 +4,7 @@ AI-ASSISTED CODING & AI AGENTS — COMPLETE SLIDE DETAILS
 
 Deck title      : AI-Assisted Coding & AI Agents
 Total slides    : 25
-Source file     : ai-assisted-coding-slides.html
+Source file     : index.html
 Asset folder    : C:\Users\LENOVO\Desktop\kernel-2026
 Target audience : Complete beginners, zero setup required
 Primary tool    : Google AI Studio (web) for the hands-on phase
@@ -925,12 +925,14 @@ TAKEAWAY     : You don't need special formatting — simple, clear bullet points
 FILE INVENTORY
 ================================================================================
 
-ai-assisted-coding-slides.html   the deck (25 slides, all HTML/CSS/JS inline)
-claude.svg                       Claude Code logo, used on slide 9
-codex.svg                        Codex logo, used on slide 9
-google-antigravity.svg           Google Antigravity logo, used on slide 9
+index.html                      the deck (25 slides, all HTML/CSS/JS inline)
+claude.svg                      Claude Code logo, used on slide 9
+codex.svg                       Codex logo, used on slide 9
+google-antigravity.svg          Google Antigravity logo, used on slide 9
+vercel.json                     Vercel static-host config (cleanUrls + old-URL rewrite)
 
-NOTE: the three .svg files must stay in the same folder as the HTML file,
+NOTE: the deck is served from index.html at the repository root, so Vercel needs
+no build step — the three .svg files must stay in the same folder as index.html,
 because slide 9 references them by relative path (claude.svg, codex.svg,
 google-antigravity.svg).
 
