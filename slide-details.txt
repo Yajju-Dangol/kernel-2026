@@ -1,0 +1,950 @@
+================================================================================
+AI-ASSISTED CODING & AI AGENTS — COMPLETE SLIDE DETAILS
+================================================================================
+
+Deck title      : AI-Assisted Coding & AI Agents
+Total slides    : 25
+Source file     : ai-assisted-coding-slides.html
+Asset folder    : C:\Users\LENOVO\Desktop\kernel-2026
+Target audience : Complete beginners, zero setup required
+Primary tool    : Google AI Studio (web) for the hands-on phase
+Canvas          : 1280 x 720, auto-scaled to the browser window
+
+--------------------------------------------------------------------------------
+DESIGN SYSTEM
+--------------------------------------------------------------------------------
+
+Layout      : 16:9 white card floating on a light paper background (#f2f1ef),
+              soft drop shadow, 46px/68px inner padding.
+Watermark   : Every slide carries its number as a faint oversized numeral in the
+              top-right corner — 196px, weight 600, rgba(20,20,20,.055) on light
+              slides and rgba(255,255,255,.085) on the dark title slide. It sits
+              behind all content (z-index 0) and never intercepts clicks. The
+              pill header row ("Section 1", "NN / 25") has been removed from all
+              slides, so position is now carried by the watermark alone.
+Typography  : Lexend (Google Fonts), loaded via <link> with preconnect for fast
+              first paint. Weights 300–700 available. Headlines 60px at weight
+              600, tight letter-spacing (-0.022em), line-height 0.96. Two-tone
+              headlines — the second half in grey (#a3a39b) for contrast. Body
+              copy, pills and labels stay at weight 400 so the bold headlines
+              carry the emphasis. SVG <text> nodes inside diagrams also specify
+              Lexend, so labels inside graphics match the slide typography.
+Labels      : Uppercase pill badges (10px, 0.14em tracking, fully rounded,
+              1px border). Top-left shows the section, next to it the slide
+              counter "NN / 25".
+Colours     : ink #141414 · sage #ced4c8 · sage-soft #e5e9e1 · grey #a3a39b
+              gold #b79448 · green #6f9d6a · red #c25a4c
+Dark slide  : Only slide 1 uses the full black background with a giant "01".
+Copyright   : Removed from every slide (top-right corner is intentionally empty).
+
+Navigation  : Left/Right arrow keys, Space, PageUp/PageDown, Home, End,
+              on-screen arrow buttons, swipe on touch. A 2px progress bar runs
+              along the bottom edge. Counter sits bottom-centre.
+Fullscreen  : Press F or click the expand button. In fullscreen the slide fills
+              the screen (zero padding, no shadow) and all controls fade out.
+              Press Esc or F to exit.
+
+Animation   : Minimal and functional only — opacity fades, small upward slides,
+              staggered delays (0.1s–1.8s), a few looping dots/markers, and
+              three scripted demos (slides 13, 16 and 20). No 3D, no libraries.
+
+================================================================================
+PART 1 — CONCEPTS, RULES & FUNDAMENTALS (SLIDES 1–25)
+================================================================================
+
+
+--------------------------------------------------------------------------------
+SLIDE 1 — Welcome to AI-Assisted Coding & AI Agents            [DARK SLIDE]
+--------------------------------------------------------------------------------
+
+WATERMARK  : 01 (top-right, faint)
+BACKGROUND : Black (#141414) with an oversized ghosted "01" in the top right.
+
+HEADLINE   : Welcome to AI-Assisted Coding & AI Agents
+             ("AI-Assisted" rendered in dimmed white)
+
+SUBTITLE   : A simple guide to models, tools and multi-agent systems. You do not
+             need to be a programmer — you need to explain your idea clearly and
+             guide a smart assistant step by step.
+
+KEY VISUAL : An input field at the bottom of the slide containing a light
+             composer box. Inside it, plain text types itself character by
+             character:
+                 "Build a simple to-do app with a blue add button"
+             A blinking caret follows the text. Once typing completes, a rounded
+             sage "GENERATE APP" button with a small dot pops up beneath it.
+
+ANIMATION  : typeTitle() runs on slide entry (42ms per character). The Generate
+             button fades and scales in 320ms after the last character.
+
+SPEAKER NOTE : "Programming today is less about memorising hard language rules
+               and more about clearly explaining what you want to build."
+
+
+--------------------------------------------------------------------------------
+SLIDE 2 — Gen 1: copy & paste
+--------------------------------------------------------------------------------
+
+WATERMARK  : 02 (top-right, faint)
+PURPOSE    : Show the oldest way to get working code, and why it always leaves
+             you doing the integration work.
+
+LEFT SIDE  : Stack Overflow window mock
+             - Browser bar with three dots and "stackoverflow.com/questions"
+             - Question 1: "How do I stop a flexbox child from overflowing on
+               mobile?" — 12 votes, 3 answers, asked 4 hours ago
+               tags: css · flexbox · responsive
+             - Question 2 (highlighted sage): "Try adding min-width: 0 to the
+               flex child — that is the fix." — accepted answer, 64 votes
+             - Question 3: "Why is my container growing past 100% width?"
+             - Snippet block that drops in below:
+                   .card-list {
+                     display: flex;
+                     min-width: 0;   /* the one line that fixed it */
+                   }
+               Header reads "COPIED TO YOUR FILE" with a "pasted ✓" tag.
+
+RIGHT SIDE : Numbered steps
+             01 Search  — for a question that looks like yours.
+             02 Copy    — the snippet into your project.
+             03 Pray    — that it was written for your setup.
+             ✕  It was not. You are now the integration layer — and you debug
+                someone else's code.
+
+ANIMATION  : The snippet block and its "pasted ✓" tag fade in (0.85s and 1.55s
+             delays). The three right-hand rows stagger in.
+
+TAKEAWAY   : For twenty years this was the fastest way to get code. It still
+             works — but every snippet arrives without any context about your
+             project.
+
+
+--------------------------------------------------------------------------------
+SLIDE 3 — Gen 2: just ask a chatbot
+--------------------------------------------------------------------------------
+
+WATERMARK  : NN (top-right, faint)
+PURPOSE    : Show what a chat-only assistant is genuinely good at, and the one
+             thing it can never do.
+
+LEFT SIDE  : ChatGPT window mock (dark UI)
+             - Browser bar: "chatgpt.com"
+             - Sidebar: New chat · Library · Projects
+               Recents: "Fix flexbox overflow", "Explain this regex",
+               "Rewrite this paragraph"
+             - Centre: "Ready when you are."
+             - Question bubble: "My card row overflows on mobile. Fix it in
+               index.html please."
+             - Answer bubble with typing dots: "Add min-width: 0 to the flex
+               child — it lets the child shrink below its content width."
+             - Composer: "+ Ask anything ◐ Think"
+
+RIGHT SIDE : Numbered steps
+             01 Describe — the problem in plain words.
+             02 Receive  — a clean, confident explanation.
+             03 But it never saw your files, so you copy the fix in yourself.
+             ✕  Great advice — delivered with no hands. Nothing was actually
+                changed.
+
+ANIMATION  : Question bubble appears at 0.55s, answer at 1.5s, with animated
+             typing dots before it.
+
+TAKEAWAY   : A chatbot is a very smart advisor. It can tell you exactly which
+             line to add, and still not be able to add it.
+
+
+--------------------------------------------------------------------------------
+SLIDE 4 — Gen 3: an AI that acts
+--------------------------------------------------------------------------------
+
+WATERMARK  : NN (top-right, faint)
+PURPOSE    : Introduce the harness — the same conversation, but now it can act
+             on the project.
+
+LEFT SIDE  : OpenCode / IDE window mock (dark UI)
+             - Tab bar: "index.html" and "AGENTS.md"
+             - Chat panel: Assistant reads style.css and index.html, finds the
+               flex child, adds min-width: 0, then runs the preview at 375px
+             - Right panel: "Files Changed 1" · "Read 3"
+               index.html   +1  −0
+               + .card-list { min-width: 0; }
+               − .card-list { width: 100%; }
+               + verified at 375px — no overflow
+             - Terminal: PS C:\my-app> npx serve .
+             - Input: "Ask anything…" with a blinking block caret
+
+RIGHT SIDE : Numbered steps
+             01 Reads         — your real files through the harness.
+             02 Edits         — them in place, no copy & paste.
+             03 Runs          — your commands to check the result.
+             04 Shows the diff — so you approve every change.
+
+ANIMATION  : Chat messages, file row, diff lines and terminal stagger in
+             (0.3s → 1.55s). The terminal caret blinks continuously.
+
+TAKEAWAY   : Same conversation, but now it can act on your project. That
+             capability is not the model — it is the harness around it.
+
+
+--------------------------------------------------------------------------------
+SLIDE 5 — Vibe coding vs. agentic coding
+--------------------------------------------------------------------------------
+
+WATERMARK  : NN (top-right, faint)
+PURPOSE    : Contrast the two mental models before the course explains either in
+             depth.
+
+SUBTITLE   : Two different approaches to building software with AI assistants.
+
+LEFT CARD (soft red)  : VIBE-FIRST — CASUAL PROMPTING
+             Big shaky red quote: "Build my entire website right now!"
+             - Unstructured, single-shot requests
+             - High risk of context loss & guesses
+             - Hard to debug when errors compound
+
+RIGHT CARD (soft green) : AGENTIC-FIRST — STRUCTURED WORKFLOW
+             1  Build the page header & navigation.
+             2  Add the product display card.
+             3  Wire up the purchase action.
+             - Modular, step-by-step execution
+             - Uses tools in a loop: edits, shell, testing
+             - Keeps context clean and controllable
+
+ANIMATION  : The left quote has a gentle shake loop after 1.4s. Both cards fade
+             up in sequence; the feature lists sit flush at the card bottoms.
+
+TAKEAWAY   : Vibe coding maps out the big picture fast; agentic workflows give
+             the AI structure, tools and constraints to reliably ship working
+             software.
+
+
+--------------------------------------------------------------------------------
+SLIDE 6 — What is a large language model?
+--------------------------------------------------------------------------------
+
+WATERMARK  : NN (top-right, faint)
+PURPOSE    : Explain what powers the AI without any maths or jargon.
+
+DIAGRAM    : Horizontal flow with travelling green dots:
+             [Your prompt] → ●———— (AI ENGINE, black circle) ————→ [AI text response]
+
+THREE NOTES :
+             WHAT IT IS       A program trained on millions of written pages
+                              that predicts the best next words.
+             THINK OF IT LIKE A very smart assistant that reads fast and
+                              understands you — but knows nothing about your
+                              project until you tell it.
+             MAIN LIMIT       It reads text and writes text. It cannot click
+                              buttons or run programs unless you give it tools.
+
+ANIMATION  : Green dots travel along both arrows on a 3.4s loop. The engine
+             circle pops in; the three notes stagger in.
+
+TAKEAWAY   : Like a smart voice on the phone: great advice, but it cannot pick
+             up a hammer unless you give it hands.
+
+
+--------------------------------------------------------------------------------
+SLIDE 7 — Chatbots vs. AI agents
+--------------------------------------------------------------------------------
+
+WATERMARK  : NN (top-right, faint)
+PURPOSE    : Draw the single most important distinction in the whole course.
+
+TWO COLUMNS:
+             SIMPLE CHATTOPB     Pale sage circle with a speech-bubble icon.
+              Answers from what it already knows. It talks — but it cannot take
+              action. Like a book on a shelf.
+
+             AI AGENT            Black circle with a gear icon.
+              Receives a task, makes a plan, uses tools and finishes the job.
+              Like a helper who does it for you.
+              A white circular checkmark badge pops in at 1.3s.
+
+KEY DIFFERENCE : A chatbot tells you how. An agent does the work.
+
+ANIMATION  : Columns fade up in sequence; the checkmark scales in with a spring.
+
+
+--------------------------------------------------------------------------------
+SLIDE 8 — Inside an AI agent
+--------------------------------------------------------------------------------
+
+WATERMARK  : NN (top-right, faint)
+PURPOSE    : Break the agent into four parts using real-world analogies.
+
+DIAGRAM    : Concentric circles in the upper centre labelled "AI AGENT", with a
+             dashed ring rotating slowly around it.
+
+FOUR PARTS :
+             01 THE BRAIN (LLM)  Understands your words and makes simple
+                                 decisions.
+             02 MEMORY           Keeps your conversation and project
+                                 instructions.
+             03 TOOLS            Searches the web, reads files, runs simple
+                                 code.
+             04 PLANNING STEP    Breaks one big job into tiny, easy tasks.
+
+ANIMATION  : The dashed ring rotates (26s loop). The four cards fade in one at a
+             time with 0.1s gaps.
+
+TAKEAWAY   : Just like a person: a brain to think, memory to remember, hands to
+             use tools, and a plan to follow.
+
+
+--------------------------------------------------------------------------------
+SLIDE 9 — What is an AI harness?
+--------------------------------------------------------------------------------
+
+WATERMARK  : 09 (top-right, faint) · uses a tighter "dense" layout variant
+PURPOSE    : Name the thing that turns a chat box into an agent.
+
+SUBTITLE   : The model is the brain. The harness is everything around it.
+
+DIAGRAM    : A black "AI MODEL — the brain" circle sitting inside a rotating
+             dashed ring labelled "THE HARNESS", with a green dot travelling
+             around that ring (16s loop).
+
+FOUR JOBS  :
+             01 KEEPS THE RULES    Loads AGENTS.md, memory and instructions
+                                   before every step.
+             02 PICKS THE CONTEXT  Sends only what the model needs, so it never
+                                   loses focus.
+             03 RUNS THE TOOLS     Edits files, searches, runs shell commands
+                                   and tests.
+             04 CHECKS AND STOPS   Reads the result, and ends the loop when the
+                                   task is done.
+
+LOOP MAPPING (three chips):
+             THINK — THE MODEL     Decides what the next step should be.
+             ACT — THE HARNESS     Runs the tool the model asked for.   (sage)
+             CHECK — THE HARNESS   Verifies the output and feeds it back. (sage)
+
+LOGOS      : Label — "THE SAME IDEA, ALREADY SHIPPED INSIDE THESE TOOLS"
+             claude.svg            CLAUDE CODE
+                                    You ask in normal words — it reads, edits
+                                    and runs for you.
+             codex.svg             CODEX
+                                    Same loop, same tools — just a different
+                                    model thinking inside it.
+             google-antigravity.svg ANTIGRAVITY
+                                    An IDE where the agent drives the whole
+                                    build for you.
+
+ANIMATION  : Ring rotates, green dot orbits, four rows stagger, chips and logo
+             cards cascade in (0.13s apart). The logo cards pop with a spring.
+
+
+--------------------------------------------------------------------------------
+SLIDE 10 — Real harnesses you can use
+--------------------------------------------------------------------------------
+
+WATERMARK  : NN (top-right, faint)
+PURPOSE    : Show three shipped products so the abstraction becomes concrete.
+
+SUBTITLE   : Different companies, same idea: a smart model, plus the tools,
+             rules and checks around it.
+
+THREE CARDS (inline SVG logos, no external files needed here):
+
+             CLAUDE CODE
+             "You describe the change in normal words. It reads the files,
+              makes the edit and runs the tests."
+             - Works inside your own project, one small step at a time.
+             - You approve each step — nothing big happens silently.
+             BEST WHEN: you want to stay in control.
+
+             CODEX
+             "You give it a whole task. It works it out on its own and hands
+              you back the finished change."
+             - Keeps going on its own until the job is done.
+             - Your files stay untouched until you accept the change.
+             BEST WHEN: you want to hand over a job.
+
+             GOOGLE ANTIGRAVITY
+             "Google's version. It writes the plan first, you approve the plan,
+              then it builds it."
+             - Every step is separate, so you can undo or redo it.
+             - Good for big jobs you want to see planned before they run.
+             BEST WHEN: you want to check the plan first.
+
+TAKEAWAY   : Same three parts in all three: a brain (the model), the rules, and
+             the hands (the tools). Change the logo and you change the harness —
+             not the idea.
+
+ANIMATION  : Three cards fade up in sequence.
+
+
+--------------------------------------------------------------------------------
+SLIDE 11 — The 3-step agent loop
+--------------------------------------------------------------------------------
+
+WATERMARK  : NN (top-right, faint)
+PURPOSE    : Show the cycle every agent runs, so nothing gets guessed at once.
+
+DIAGRAM    : Large SVG circle with six arc segments and a black "REPEAT — until
+             done" core. A green dot travels continuously around the ring
+             (9s loop) using SVG motion animation.
+
+THREE STEPS:
+             01 THINK  Look at the goal and ask: what should I do first?
+             02 ACT    Use a tool — search a page, read a file, run a snippet.
+             03 CHECK  Look at the result: did it work, and what comes next?
+
+             "Keeps going around the loop — UNTIL THE TASK IS FINISHED"
+
+ANIMATION  : The orbiting dot loops forever. The three step rows stagger in.
+
+TAKEAWAY   : Agents don't guess everything at once — they take a small step,
+             check it, then take the next.
+
+
+--------------------------------------------------------------------------------
+SLIDE 12 — How tools give AI "hands"
+--------------------------------------------------------------------------------
+
+WATERMARK  : NN (top-right, faint)
+PURPOSE    : Explain what a tool actually is, with everyday examples.
+
+SUBTITLE   : Without tools the AI can only talk about things. With tools it can
+             perform real tasks.
+
+DIAGRAM    : Left — an "AI CHAT WINDOW" card with two bubbles:
+                "What's today's weather?"
+                "Searching now — one moment."
+             Middle — three connector wires with green dots travelling across,
+                      staggered by 0.5s.
+             Right — three tool boxes:
+                WEB SEARCH   live internet results
+                FILE READER  read & save on your disk
+                CODE TESTER  run & verify a snippet
+
+ANIMATION  : Wires animate continuously; tool boxes fade in one by one.
+
+TAKEAWAY   : Tools turn an AI from an advisor sitting in a chair into a worker
+             sitting at a desk.
+
+
+--------------------------------------------------------------------------------
+SLIDE 13 — [DEMO 1] Watching an AI use tools
+--------------------------------------------------------------------------------
+
+WATERMARK  : 13 (top-right, faint)
+PURPOSE    : Prove the point from slide 12 with a real tool-calling trace.
+
+LEFT — OpenCode window mock (dark, 386px tall):
+         Tab bar: style.css · index.html
+         Chat panel (bottom-aligned, fills in over time):
+            YOU         "The card row overflows on mobile. Find out why and fix
+                         it."
+            read(index.html)        → 212 lines
+            grep("display:flex")    → 3 matches
+            edit(style.css)         → +1 −0
+            bash(npm test)           → 3 passed
+            ASSISTANT  "Added min-width: 0 to .card-list. No overflow at 375px."
+            Input: "Ask anything…" with blinking caret
+
+         Right panel (appears in sync):
+            Files Changed 1 · Read 2
+            style.css   +1  −0
+            + .card-list { min-width: 0; }
+            − .card-list { width: 100%; }
+            verified at 375px
+            Terminal: PS C:\my-app> npm test
+                      ✓ layout tests 3 passed
+
+RIGHT SIDE: "WHAT WE'RE SHOWING"
+            01 You ask for a fix in normal words.
+            02 The AI calls four tools in order: read, grep, edit, test.
+            03 Each result comes back before the next step.
+            04 It changes only what the job needs.
+            Badge: "KEY LESSON: IT KNOWS WHEN IT NEEDS A TOOL"
+            Button: ▶ RUN DEMO
+
+INTERACTION: Press "Run demo" to replay. Steps ACCUMULATE (the log fills up)
+             rather than replacing each other. Steps sharing a timestamp are
+             revealed together. 1.1s per step. Resets when you leave the slide.
+
+TAKEAWAY   : Watch the pauses: each tool call is a real action on your files —
+             read this, change that, run the test — not a sentence about one.
+
+
+--------------------------------------------------------------------------------
+SLIDE 14 — Model context protocol, made simple
+--------------------------------------------------------------------------------
+
+WATERMARK  : NN (top-right, faint)
+PURPOSE    : Explain MCP with a familiar physical analogy.
+
+SUBTITLE   : One shared language, so any AI tool can plug into any app, folder
+             or database.
+
+OLD WAY (left column) :
+             Wiring an AI to a new database or app meant writing custom code
+             every time.
+             - Every app needed its own connector
+             - Weeks of work before anything worked
+             - Old connectors break when an app updates
+
+NEW WAY (left column) :
+             MCP is a standard plug — the same shape for every tool, file system
+             and app.
+             - Build one connector, reuse it everywhere
+             - Your AI picks up tools on its own
+             - Switch AI tools without rewiring anything
+             "One plug. Every tool. No breakage."
+
+VISUAL (right) :
+             A USB-style plug slides smoothly into a black "YOUR AI APP" box.
+             The socket lights green, a green data dot pulses, and "CONNECTED"
+             fades in below the box.
+
+WHO IT IS FOR (three columns):
+             MCP SERVER      = one app, folder or database. Your AI app plugs in
+                              and can read what it holds.
+             FOR YOU         Ask in plain words; your AI fetches the files or
+                              rows it needs.
+             FOR THE TOOL MAKER  Publish one server once; every MCP-ready AI can
+                              use it the same day.
+             FOR THE TEAM    One shared setup instead of many one-off scripts
+                              nobody wants to maintain.
+
+TAKEAWAY   : Think of MCP as a universal charger: instead of ten different
+             cables, you use one plug for everything.
+
+
+--------------------------------------------------------------------------------
+SLIDE 15 — A real MCP: treg.to inside OpenCode
+--------------------------------------------------------------------------------
+
+WATERMARK  : NN (top-right, faint)
+PURPOSE    : Show a working MCP the audience can copy tonight.
+
+SUBTITLE   : One plug gives the AI 3,800+ paid tools. Here is the whole setup.
+
+CODE BLOCK (opencode.json — "4 lines"):
+             {
+               "mcp": {
+                 "treg": {
+                   "type": "remote",
+                   "url": "https://treg.to/mcp",
+                   "headers": {
+                     "X-Treg-Token": "{env:TREG_TOKEN}"
+                   }
+                 }
+               }
+             }
+
+THREE STEPS:
+             Step 1  Put the block in opencode.json and restart. OpenCode shows
+                     "treg connected".
+             Step 2  Ask in normal words: "pull TikTok trends and draft a post".
+                     No API names needed.
+             Step 3  The AI calls the right endpoint and you see the price
+                     before the call.
+
+THREE PARTS (revisited with real names):
+             01 · HOST              OpenCode — the window where you type. It
+                                     holds the key, nothing else does.
+             02 · MCP SERVER        treg.to — one catalogue. Keys stay
+                                     server-side.
+             03 · 108 PROVIDERS ANSWER
+                                     TikTok trends · Instagram reels · X posts ·
+                                     YouTube videos · Reddit threads ·
+                                     LinkedIn pages
+             Terminal: treg call tikhub.tiktok.trending   ✓ 200 · $0.006
+
+TAKEAWAY   : Same three parts as before: your app, the bridge, the data — but
+             the data is now the whole internet, billed per call.
+
+
+--------------------------------------------------------------------------------
+SLIDE 16 — What is a skill?
+--------------------------------------------------------------------------------
+
+WATERMARK  : NN (top-right, faint)
+PURPOSE    : Introduce skills as plain instruction files, not code.
+
+SUBTITLE   : A skill is a short instruction file you drop into your project. The
+             AI reads it before every task — so it stops guessing and starts
+             following your rules.
+
+FILE PREVIEW (skills/commit-message.md — "plain text"):
+             # Commit message skill
+             When I ask for a commit message:
+             1. Use the feat: / fix: / chore: prefix
+             2. One line, imperative mood, under 72 characters
+             3. Explain why, not what changed
+             4. Never mention ticket numbers
+             Do not rewrite code. Only write the message.
+
+THREE POINTS :
+             A SKILL IS JUST A FILE   Plain words, saved once. No code, no
+                                      setup. One Markdown file named after the
+                                      job it does.
+             IT LOADS AUTOMATICALLY    The AI reads it first. Put the file in
+                                      .opencode/skills/. Before any step, the AI
+                                      loads it — you never repeat yourself.
+             IT KEEPS OUTPUT THE SAME Same rules, every run. Your style, your
+                                      naming, your limits. The first answer and
+                                      the tenth answer match.
+
+ANIMATION  : File preview rows fade in sequentially with a green tick per rule.
+
+TAKEAWAY   : One skill = one job. Teach it once, and the AI stops drifting every
+             time you open a new chat.
+
+
+--------------------------------------------------------------------------------
+SLIDE 17 — Modular AI skills
+--------------------------------------------------------------------------------
+
+WATERMARK  : NN (top-right, faint)
+PURPOSE    : Show that skills are composable building blocks.
+
+SUBTITLE   : A skill is a reusable set of instructions given to an AI for one
+             specific job — like a checklist you hand to a new team member
+             before they start.
+
+THREE SKILL CARDS (slide into a dashed container):
+             SKILL 01  HTML SKILL  Clean, simple page structure every time.
+             SKILL 02  CSS SKILL   Your colours, spacing and layout rules.
+             SKILL 03  JS SKILL    Simple button and form logic that works.
+
+EXAMPLE PILLS : Fixing styling bugs · Writing clean HTML layouts ·
+                Checking code errors
+
+ANIMATION  : The three cards rise from below and settle into the dashed box,
+             0.16s apart, each with a slight rotation resolving to zero.
+
+TAKEAWAY   : Instead of explaining everything from scratch every time, you hand
+             the AI a pre-written skill card.
+
+
+--------------------------------------------------------------------------------
+SLIDE 18 — What is a subagent?
+--------------------------------------------------------------------------------
+
+WATERMARK  : NN (top-right, faint)
+PURPOSE    : Explain delegation — a second AI doing one small job.
+
+SUBTITLE   : A subagent is a second AI you hand one small job to. It works on
+             its own, then brings back only the answer — the main chat stays
+             short and clean.
+
+FLOW (three connected cards):
+             MAIN AGENT     "You ask for a landing page. It reads the job,
+                            decides a helper is needed, and starts one."
+                            starts subagent: accessibility-check
+             THE SUBAGENT WORKS ALONE
+                            Gets only the task, not the whole chat. Reads the
+                            files it needs on its own. Finishes, then stops and
+                            reports back.
+             RETURNS: "3 issues found — missing labels, low contrast, tiny tap
+                      targets."
+
+FOUR POINTS :
+             WHY IT HELPS    One job, one pair of eyes. Fresh, narrow focus, no
+                             half-finished thoughts from earlier.
+             WHY IT'S CHEAP  Only the answer comes back. You never see the files
+                             it read or the steps it tried.
+             WHEN TO USE IT  Big or repeatable jobs — research, checking many
+                             files, fixing the same error across pages. Not
+                             one-line edits.
+
+TAKEAWAY   : A skill tells the AI how to do a job. A subagent is a separate AI
+             that does the job.
+
+
+--------------------------------------------------------------------------------
+SLIDE 19 — Types of subagents
+--------------------------------------------------------------------------------
+
+WATERMARK  : NN (top-right, faint)
+PURPOSE    : Show the four ready-made subagents every coding agent ships with.
+
+SUBTITLE   : You do not invent these from scratch. Every coding agent ships a
+             few ready-made subagents — you just pick the one that matches the
+             job.
+
+FOUR CARDS :
+             EXPLORE — THE FINDER
+                Searches the codebase and answers questions about it.
+                Read-only — it never edits.
+                "Where is the login form handled?"
+
+             PLAN — THE THINKER
+                Reads the project, then lists the steps before any code is
+                written.
+                "How do I add auth to this app?"
+
+             BUILD — THE WRITER
+                Writes the code in a sandbox, then shows you a diff to approve.
+                "Build the signup page from the plan."
+
+             REVIEW — THE CHECKER
+                Reads the finished work fresh and flags bugs you would have
+                missed.
+                "Review the diff before I merge."
+
+TIP        : "Pick the job. One subagent per task, and it stops when the job
+             ends. Chaining all four on one request is what turns a small task
+             into a slow, expensive run."
+
+TAKEAWAY   : A skill is a set of rules, a subagent is a separate worker. You
+             can give a subagent a skill to follow.
+
+
+--------------------------------------------------------------------------------
+SLIDE 20 — [DEMO 3] Multi-agent team in action
+--------------------------------------------------------------------------------
+
+WATERMARK  : 20 (top-right, faint)
+PURPOSE    : Show one agent handing work to another and catching a mistake
+             before the user sees it.
+
+TWO CHAT WINDOWS side by side, connected by an animated arrow:
+
+             AGENT A — BUILDER
+                "Here is the layout I built — 2 columns, header on top."
+                <button>Add item</button>          (dark code bubble)
+                "Sending it to the tester for a check."
+
+             AGENT B — TESTER
+                "Checking the markup now…"
+                "Found a missing closing tag on the add button."
+                [ APPROVED ]                        (green pill, scales in)
+
+INTERACTION: Button "▶ RUN HANDOFF" plays the sequence (1.25s per step).
+             Auto-plays on slide entry; button replays it.
+
+KEY LESSON : Agents catch each other's mistakes before you ever see the final
+             code.
+
+
+--------------------------------------------------------------------------------
+SLIDE 21 — What is an AI "context window"?
+--------------------------------------------------------------------------------
+
+WATERMARK  : NN (top-right, faint)
+PURPOSE    : Explain the limit that causes forgetting, in beginner terms, and
+             give a concrete sense of how much text actually fits.
+
+THREE NOTES :
+             SIMPLE DEFINITION  The maximum amount of text an AI can read and
+                               remember in one single session.
+             THE PROBLEM       Paste too much at once and the AI loses focus —
+                               it forgets your early instructions.  (gold accent)
+             THE GOLDEN RULE   Keep prompts short, direct and focused on ONE
+                               task at a time.
+
+SIZE REFERENCE (three cards across the bottom):
+             SMALL WINDOW      8K tokens
+                               ≈ 6,000 words
+                               ≈ 20 pages of text
+
+             COMMON TODAY      200K tokens
+                               ≈ 150,000 words
+                               ≈ 500–800 pages
+
+             FRONTIER MODELS   1M tokens          (highlighted sage card)
+                               ≈ 750,000 words
+                               ≈ 2,000–3,000 pages
+
+VISUAL (right) : A glass "CONTEXT DESK" fills with blocks one at a time. As the
+                 pile grows past the rim, a red "FORGOTTEN" block spills out of
+                 the top.
+
+ANIMATION  : Blocks drop in at 0.15s intervals; the spilled block appears at
+             1.15s with a red highlight. The three size cards fade up between
+             0.7s and 1.02s.
+
+TAKEAWAY   : Think of the context window like a small desk: cover it with
+             hundreds of papers and things fall off the edge.
+
+NOTE FOR THE PRESENTER: the page counts on the three size cards assume ~0.75
+             words per token and 250–375 words per page of plain prose. Real
+             code and documents tokenize less efficiently, so a code-heavy
+             project reaches the ceiling sooner than the page counts suggest.
+             Mention this if anyone questions the numbers — it is not printed
+             on the slide.
+
+
+--------------------------------------------------------------------------------
+SLIDE 22 — Giving AI a memory
+--------------------------------------------------------------------------------
+
+WATERMARK  : NN (top-right, faint)
+PURPOSE    : Show how an agent retains useful information instead of starting
+             from zero every time.
+
+LEFT COLUMN :
+             WITHOUT MEMORY   Every new conversation starts fresh. Yesterday's
+                              decisions, your preferences and the last hour's
+                              work are simply gone — so you ask again, every
+                              time.
+             WITH MEMORY      The agent writes down what matters and reads it
+                              back the next time you start.
+                              Chips: Project decisions · Your preferences ·
+                              Previous work · Fixes it already tried
+             KEY IDEA (gold)  Context is what the AI knows right now. Memory is
+                              what it can still use later.
+             WHERE IT LIVES   A rules file like AGENTS.md, a plain notes file, or
+                              the tool's own memory store — the AI reads it
+                              before every task.
+
+RIGHT COLUMN (four numbered steps, connected by arrows):
+             1  YOU TELL IT ONCE
+                "Always use TypeScript and Tailwind for this project."
+             2  IT WRITES IT DOWN
+                MEMORY
+                  • Stack:  TypeScript + Tailwind
+                  • Theme:  dark, round blue buttons
+                  • Deploy: Netlify drop
+             3  NEW CHAT, SAME AGENT
+                "Which stack should I start with?"   (dashed bubble)
+             4  IT ALREADY KNOWS
+                MEMORY
+                  • Stack: TypeScript + Tailwind
+                  ✓ Starting with TypeScript.   [ I REMEMBER! ]
+
+ANIMATION  : The four steps fade up in sequence (0.3s apart); numbered circles
+             turn sage green as they arrive. The checkmark and the "I REMEMBER!"
+             badge pop in last (1.5s).
+
+TAKEAWAY   : Think of memory as a notebook for your agent — it never has to ask
+             you the same thing twice.
+
+
+--------------------------------------------------------------------------------
+SLIDE 23 — Context engineering
+--------------------------------------------------------------------------------
+
+WATERMARK  : NN (top-right, faint)
+PURPOSE    : Explain that good AI coding is not only about better prompts — it
+             is about giving the agent the right information to decide well.
+
+SUBTITLE   : Giving the AI the right information — good AI coding is not only
+             about writing better prompts.
+
+LEFT COLUMN :
+             THE PROBLEM        An AI cannot understand your whole project
+                               unless the relevant information is actually
+                               available to it.
+             TOO LITTLE CONTEXT It fills the gaps with wrong assumptions —
+                               wrong library, wrong file, wrong idea of the goal.
+                               (red label)
+             TOO MUCH CONTEXT   The one important line gets buried in a wall of
+                               unrelated files.                (grey label)
+             CONTEXT ENGINEERING Choosing and organising the right files,
+                               instructions, requirements, examples and past
+                               decisions for this task.
+             KEY IDEA (gold)    Don't give AI everything. Give it what it needs.
+
+RIGHT COLUMN (four numbered nodes, connected by arrows):
+             1  USER TASK
+                "Make the card grid responsive."
+             2  THE PROJECT — EVERYTHING YOU HAVE
+                  • AGENTS.md — project rules
+                  • grid.css — the styles
+                  • requirements.txt
+                  • notes.md — past decisions
+                  • 2019-archive/old-layout.css
+                  • vendor/jquery.min.js
+             3  SELECT THE RIGHT CONTEXT   (sage card)
+                Keep the 4 that matter. Drop the archive and the vendor bundle.
+             4  AI — BETTER RESULT         (black card)
+                It now has the rules, the real styles and the requirement, so
+                the decision is a good one.
+
+ANIMATION  : Files fan in one by one (0.58s–1.08s). As the "select" node
+             arrives, the archive and vendor bundle grey out with a strikethrough
+             while the four useful files light up with green dots and a white
+             background. The AI card fades in last at 1.8s.
+
+TAKEAWAY   : Think of context like giving a new employee the documents they need
+             for a task — not the entire company archive.
+
+
+--------------------------------------------------------------------------------
+SLIDE 24 — Setting rules with AGENTS.md
+--------------------------------------------------------------------------------
+
+WATERMARK  : NN (top-right, faint)
+PURPOSE    : Show how to set permanent instructions so you stop repeating
+             yourself.
+
+SUBTITLE   : A simple text file placed in your project folder that sets ground
+             rules — so you stop repeating yourself.
+
+VISUAL (left) :
+             A chat input bar reading "Ask anything…". An AGENTS.md document card
+             slides in from the left and tucks behind the input. A green
+             "RULES LOADED" badge pops out below it.
+
+CHIPS      : Project goal · Tools to use · How it should look
+
+WHAT GOES INSIDE :
+             1  The overall project goal.
+             2  What simple tools or code to use — e.g. "use plain HTML and
+                CSS".
+             3  How you want the layout to look.
+
+ANIMATION  : Document slides in at 0.3s, badge appears at 1.15s.
+
+TAKEAWAY   : It is like hanging a rule sheet on the office wall so every worker
+             knows the house rules.
+
+
+--------------------------------------------------------------------------------
+SLIDE 25 — What a simple rule file looks like
+--------------------------------------------------------------------------------
+
+WATERMARK  : 25 (top-right, faint) · final slide
+PURPOSE    : Prove with a real, non-intimidating example that rule files need no
+             special formatting.
+
+FILE PREVIEW ("Project: simple web app" — "plain text"), each row with a green
+tick that appears after the text:
+             ROLE   You are a helpful web developer helper.
+             TOOLS  Use basic HTML5, CSS and JavaScript only.
+             STYLE  Use a modern dark theme with round blue buttons.
+             RULE   Write simple code and explain it in two sentences.
+
+KEY TAKEAWAY : It is just plain English bullet points. No code, no special
+              formatting.
+CHIPS        : No code required · Read every session
+
+ANIMATION    : Rows fade up in sequence (0.1s → 0.52s); each green tick springs
+               in 0.5s after its row lands.
+
+TAKEAWAY     : You don't need special formatting — simple, clear bullet points
+               are all the AI needs.
+
+================================================================================
+FILE INVENTORY
+================================================================================
+
+ai-assisted-coding-slides.html   the deck (25 slides, all HTML/CSS/JS inline)
+claude.svg                       Claude Code logo, used on slide 9
+codex.svg                        Codex logo, used on slide 9
+google-antigravity.svg           Google Antigravity logo, used on slide 9
+
+NOTE: the three .svg files must stay in the same folder as the HTML file,
+because slide 9 references them by relative path (claude.svg, codex.svg,
+google-antigravity.svg).
+
+================================================================================
+INTERACTIVE ELEMENTS
+================================================================================
+
+Slide 13   "RUN DEMO" button  — replays the four-tool trace, 1.1s per step
+Slide 20   "RUN HANDOFF" button — replays the two-agent handoff, 1.25s per step
+Slide 12   MCP file tree — auto-expands on entry; no button
+Slide 1    Auto-typing composer + Generate button on entry
+
+Every slide resets its demo state when you navigate away and returns to it.
+
+================================================================================
+END
+================================================================================
