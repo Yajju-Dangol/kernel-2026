@@ -3,7 +3,7 @@ AI-ASSISTED CODING & AI AGENTS — COMPLETE SLIDE DETAILS
 ================================================================================
 
 Deck title      : AI-Assisted Coding & AI Agents
-Total slides    : 28
+Total slides    : 40
 Source file     : index.html
 Asset folder    : C:\Users\LENOVO\Desktop\kernel-2026
 Target audience : Complete beginners, zero setup required
@@ -20,21 +20,29 @@ Watermark   : Every slide carries its number as a faint oversized numeral in the
               top-right corner — 196px, weight 600, rgba(20,20,20,.055) on light
               slides and rgba(255,255,255,.085) on the dark title slide. It sits
               behind all content (z-index 0) and never intercepts clicks. The
-              pill header row ("Section 1", "NN / 28") has been removed from all
+              pill header row ("Section 1", "NN / 40") has been removed from all
               slides, so position is now carried by the watermark alone.
 Typography  : Lexend (Google Fonts), loaded via <link> with preconnect for fast
-              first paint. Weights 300–700 available. Headlines 60px at weight
-              600, tight letter-spacing (-0.022em), line-height 0.96. Two-tone
-              headlines — the second half in grey (#a3a39b) for contrast. Body
-              copy, pills and labels stay at weight 400 so the bold headlines
-              carry the emphasis. SVG <text> nodes inside diagrams also specify
-              Lexend, so labels inside graphics match the slide typography.
+              first paint. Weights 300-700 available. Headlines 55px at weight
+              600, line-height 0.96, letter-spacing -0.022em. The title slide
+              runs at 70px, the dense slides drop to 41-50px, and the ten
+              build-step slides use 42px. Two-tone headlines — the second half
+              in grey (#a3a39b) for contrast. Body copy, pills and labels stay at
+              weight 400 so the bold headlines carry the emphasis. SVG <text>
+              nodes inside diagrams also specify Lexend, so labels inside
+              graphics match the slide typography.
+              Body copy sits one step larger than the original pass: subtitles
+              16px, .note takeaway 15px, card copy 12.5-15px. All of it lives in
+              one override block at the end of the stylesheet ("BODY TEXT
+              BUMP"), so the whole deck's running text can be tuned in one
+              place — headlines, micro-labels and code blocks are excluded.
 Labels      : Uppercase pill badges (10px, 0.14em tracking, fully rounded,
-              1px border). Top-left shows the section, next to it the slide
-              counter "NN / 28".
+               1px border). Top-left shows the section, next to it the slide
+               counter "NN / 40".
 Colours     : ink #141414 · sage #ced4c8 · sage-soft #e5e9e1 · grey #a3a39b
-              gold #b79448 · green #6f9d6a · red #c25a4c
-Dark slide  : Only slide 1 uses the full black background with a giant "01".
+               gold #b79448 · green #6f9d6a · red #c25a4c
+Dark slide  : Slides 3 and 40 use the full black background — the welcome and the
+              closing slide — with a giant ghosted numeral in the top right.
 Copyright   : Removed from every slide (top-right corner is intentionally empty).
 
 Navigation  : Left/Right arrow keys, Space, PageUp/PageDown, Home, End,
@@ -44,12 +52,39 @@ Fullscreen  : Press F or click the expand button. In fullscreen the slide fills
               the screen (zero padding, no shadow) and all controls fade out.
               Press Esc or F to exit.
 
+Type scaler : Every slide's text can be resized live, without touching the CSS.
+              It is a single JS block ("type scaler") near the end of the script
+              that records the computed size of every element inside .slide once
+              on load, then rewrites those inline font-sizes by a multiplier.
+
+              Keys   + / -        headings and body together
+                     Shift + + - headings only
+                     Alt + + -   body copy only
+                     0            back to 100%
+
+              Range  60%–160% in 4% steps. The setting is saved in localStorage
+                     (deck-type-scale), so a size you like survives a reload and
+                     applies to every slide at once.
+
+              Bucket rule: an element counts as a heading if it is an h1–h6, is
+                     set at weight 600 or higher, or is already 19px or larger.
+                     Everything else — paragraphs, list items, card copy, the
+                     .note takeaway, micro-labels and code — is body copy.
+
+              Readout : a dark pill above the nav bar shows the live percentages
+                     and fades out after 2.2s. If any slide's content would be
+                     cut off at the new size, the pill turns dark red and lists
+                     the affected slide numbers ("tight on 24, 26, 30"). On first
+                     load it shows the key hints instead, and the bottom-right
+                     hint line carries "+ − to resize text".
+
 Animation   : Minimal and functional only — opacity fades, small upward slides,
-              staggered delays (0.1s–1.8s), a few looping dots/markers, and
-              four scripted demos (slides 1, 15, 22 and 25). No 3D, no libraries.
+               staggered delays (0.1s–1.8s), a few looping dots/markers, four
+               scripted demos (slides 1, 16, 23 and 26) and one short animated
+               visual on each of the ten build-step slides. No 3D, no libraries.
 
 ================================================================================
-PART 1 — CONCEPTS, RULES & FUNDAMENTALS (SLIDES 1–28)
+PART 1 — CONCEPTS, RULES & FUNDAMENTALS (SLIDES 1–29)
 ================================================================================
 
 
@@ -145,10 +180,60 @@ SPEAKER NOTE : "Programming today is less about memorising hard language rules
 
 
 --------------------------------------------------------------------------------
-SLIDE 4 — Gen 1: copy & paste
+SLIDE 4 — What we cover today                              [AGENDA / ROADMAP]
 --------------------------------------------------------------------------------
 
 WATERMARK  : 04 (top-right, faint)
+PURPOSE    : Show the whole course on one screen — five concept blocks, then the
+             three phases of the live build — so the audience knows where they
+             are before the first concept slide.
+
+HEADLINE   : What we cover today ("cover today" in grey)
+LAYOUT     : Two columns under the headline, both starting at the same height.
+             Each column opens with a small uppercase part label, then a list of
+             items separated by hairline rules: a 15.5px title over a 13px
+             description. The block is centred vertically in the space below the
+             headline. Part 1 has five items, Part 2 three.
+
+PART 1 — CONCEPTS & FUNDAMENTALS (left column):
+             AI evolution
+             Gen 1–3 coding history, Vibe vs. Agentic workflows
+
+             Core architecture
+             LLMs, Chatbots vs. Agents, and the 4 Agent Components
+
+             Harnesses & tools
+             MCP protocols, Claude Code/Codex, and tool execution
+
+             Skills & multi-agent systems
+             Custom skill files, subagents, and team handoffs
+
+             Context & rules
+             Context windows, memory retention, AGENTS.md, and security
+
+PART 2 — LIVE BUILD: QUIZ APP IN 10 STEPS (right column):
+             Phase 1 · Setup & design
+             Steps 1–4: AI Studio generation, Pinterest styles, and local
+             environment setup
+
+             Phase 2 · Features & testing
+             Steps 5–8: Team lobby, Pusher real-time scores, bug fixes, and
+             visual polish
+
+             Phase 3 · Deployment
+             Steps 9–10: Pushing code to GitHub and hosting live on Vercel
+
+ANIMATION  : The two columns fade up at 0.06s and 0.16s. Nothing loops.
+
+NOTE       : Part 1 maps to slides 5–29, Part 2 to slides 30–39 (the ten build
+             steps, one slide each).
+
+
+--------------------------------------------------------------------------------
+SLIDE 5 — Gen 1: copy & paste
+--------------------------------------------------------------------------------
+
+WATERMARK  : 05 (top-right, faint)
 PURPOSE    : Show the oldest way to get working code, and why it always leaves
              you doing the integration work.
 
@@ -183,7 +268,7 @@ TAKEAWAY   : For twenty years this was the fastest way to get code. It still
 
 
 --------------------------------------------------------------------------------
-SLIDE 5 — Gen 2: just ask a chatbot
+SLIDE 6 — Gen 2: just ask a chatbot
 --------------------------------------------------------------------------------
 
 WATERMARK  : NN (top-right, faint)
@@ -217,7 +302,7 @@ TAKEAWAY   : A chatbot is a very smart advisor. It can tell you exactly which
 
 
 --------------------------------------------------------------------------------
-SLIDE 6 — Gen 3: an AI that acts
+SLIDE 7 — Gen 3: an AI that acts
 --------------------------------------------------------------------------------
 
 WATERMARK  : NN (top-right, faint)
@@ -250,7 +335,7 @@ TAKEAWAY   : Same conversation, but now it can act on your project. That
 
 
 --------------------------------------------------------------------------------
-SLIDE 7 — Vibe coding vs. agentic coding
+SLIDE 8 — Vibe coding vs. agentic coding
 --------------------------------------------------------------------------------
 
 WATERMARK  : NN (top-right, faint)
@@ -282,7 +367,7 @@ TAKEAWAY   : Vibe coding maps out the big picture fast; agentic workflows give
 
 
 --------------------------------------------------------------------------------
-SLIDE 8 — What is a large language model?
+SLIDE 9 — What is a large language model?
 --------------------------------------------------------------------------------
 
 WATERMARK  : NN (top-right, faint)
@@ -308,7 +393,7 @@ TAKEAWAY   : Like a smart voice on the phone: great advice, but it cannot pick
 
 
 --------------------------------------------------------------------------------
-SLIDE 9 — Chatbots vs. AI agents
+SLIDE 10 — Chatbots vs. AI agents
 --------------------------------------------------------------------------------
 
 WATERMARK  : NN (top-right, faint)
@@ -330,7 +415,7 @@ ANIMATION  : Columns fade up in sequence; the checkmark scales in with a spring.
 
 
 --------------------------------------------------------------------------------
-SLIDE 10 — Inside an AI agent
+SLIDE 11 — Inside an AI agent
 --------------------------------------------------------------------------------
 
 WATERMARK  : NN (top-right, faint)
@@ -356,10 +441,10 @@ TAKEAWAY   : Just like a person: a brain to think, memory to remember, hands to
 
 
 --------------------------------------------------------------------------------
-SLIDE 11 — What is an AI harness?
+SLIDE 12 — What is an AI harness?
 --------------------------------------------------------------------------------
 
-WATERMARK  : 11 (top-right, faint) · uses a tighter "dense" layout variant
+WATERMARK  : 12 (top-right, faint) · uses a tighter "dense" layout variant
 PURPOSE    : Name the thing that turns a chat box into an agent.
 
 SUBTITLE   : The model is the brain. The harness is everything around it.
@@ -399,7 +484,7 @@ ANIMATION  : Ring rotates, green dot orbits, four rows stagger, chips and logo
 
 
 --------------------------------------------------------------------------------
-SLIDE 12 — Real harnesses you can use
+SLIDE 13 — Real harnesses you can use
 --------------------------------------------------------------------------------
 
 WATERMARK  : NN (top-right, faint)
@@ -439,7 +524,7 @@ ANIMATION  : Three cards fade up in sequence.
 
 
 --------------------------------------------------------------------------------
-SLIDE 13 — The 3-step agent loop
+SLIDE 14 — The 3-step agent loop
 --------------------------------------------------------------------------------
 
 WATERMARK  : NN (top-right, faint)
@@ -463,7 +548,7 @@ TAKEAWAY   : Agents don't guess everything at once — they take a small step,
 
 
 --------------------------------------------------------------------------------
-SLIDE 14 — How tools give AI "hands"
+SLIDE 15 — How tools give AI "hands"
 --------------------------------------------------------------------------------
 
 WATERMARK  : NN (top-right, faint)
@@ -489,11 +574,11 @@ TAKEAWAY   : Tools turn an AI from an advisor sitting in a chair into a worker
 
 
 --------------------------------------------------------------------------------
-SLIDE 15 — [DEMO 1] Watching an AI use tools
+SLIDE 16 — [DEMO 1] Watching an AI use tools
 --------------------------------------------------------------------------------
 
-WATERMARK  : 15 (top-right, faint)
-PURPOSE    : Prove the point from slide 12 with a real tool-calling trace.
+WATERMARK  : 16 (top-right, faint)
+PURPOSE    : Prove the point from slide 15 with a real tool-calling trace.
 
 LEFT — OpenCode window mock (dark, 386px tall):
          Tab bar: style.css · index.html
@@ -533,7 +618,7 @@ TAKEAWAY   : Watch the pauses: each tool call is a real action on your files —
 
 
 --------------------------------------------------------------------------------
-SLIDE 16 — Model context protocol, made simple
+SLIDE 17 — Model context protocol, made simple
 --------------------------------------------------------------------------------
 
 WATERMARK  : NN (top-right, faint)
@@ -577,52 +662,41 @@ TAKEAWAY   : Think of MCP as a universal charger: instead of ten different
 
 
 --------------------------------------------------------------------------------
-SLIDE 17 — A real MCP: treg.to inside OpenCode
+SLIDE 18 — A real MCP: treg.to inside OpenCode
 --------------------------------------------------------------------------------
 
-WATERMARK  : NN (top-right, faint)
-PURPOSE    : Show a working MCP the audience can copy tonight.
+WATERMARK  : 18 (top-right, faint)
+PURPOSE    : Show a working MCP the audience can copy tonight — in one line.
 
-SUBTITLE   : One plug gives the AI 3,800+ paid tools. Here is the whole setup.
+SUBTITLE   : One line, and your AI gets 3,800+ paid tools.
 
-CODE BLOCK (opencode.json — "4 lines"):
-             {
-               "mcp": {
-                 "treg": {
-                   "type": "remote",
-                   "url": "https://treg.to/mcp",
-                   "headers": {
-                     "X-Treg-Token": "{env:TREG_TOKEN}"
-                   }
-                 }
-               }
-             }
+ONE-LINE SETUP (dark bar, monospace, with a "copy" chip on the right):
+             $ set up treg - https://treg.to/llms.txt
+             The URL is highlighted in green. There is no JSON to hand-edit and
+             no file to restart — the AI reads the line and does the setup.
 
 THREE STEPS:
-             Step 1  Put the block in opencode.json and restart. OpenCode shows
-                     "treg connected".
+             Step 1  Paste that line into your AI. It does the setup for you.
              Step 2  Ask in normal words: "pull TikTok trends and draft a post".
-                     No API names needed.
-             Step 3  The AI calls the right endpoint and you see the price
-                     before the call.
+             Step 3  It picks the right tool and shows you the price first.
 
-THREE PARTS (revisited with real names):
-             01 · HOST              OpenCode — the window where you type. It
-                                     holds the key, nothing else does.
-             02 · MCP SERVER        treg.to — one catalogue. Keys stay
-                                     server-side.
-             03 · 108 PROVIDERS ANSWER
-                                     TikTok trends · Instagram reels · X posts ·
-                                     YouTube videos · Reddit threads ·
-                                     LinkedIn pages
-             Terminal: treg call tikhub.tiktok.trending   ✓ 200 · $0.006
+TWO PARTS (revisited with real names):
+             YOUR APP    OpenCode — the window where you type.
+             THE BRIDGE  treg.to — one list of 3,800+ tools. Your key stays safe
+                          here. (black card)
+             Below it, one quiet line of examples:
+             TikTok · Instagram · X · YouTube · Reddit · LinkedIn
 
 TAKEAWAY   : Same three parts as before: your app, the bridge, the data — but
-             the data is now the whole internet, billed per call.
+             now the data is the whole internet.
+
+ANIMATION  : Subtitle at 0.06s, the command bar at 0.16s, the steps at 0.26s /
+             0.36s / 0.46s, the two cards at 0.26s and 0.36s (the black card pops
+             in). Nothing loops.
 
 
 --------------------------------------------------------------------------------
-SLIDE 18 — What is a skill?
+SLIDE 19 — What is a skill?
 --------------------------------------------------------------------------------
 
 WATERMARK  : NN (top-right, faint)
@@ -659,7 +733,7 @@ TAKEAWAY   : One skill = one job. Teach it once, and the AI stops drifting every
 
 
 --------------------------------------------------------------------------------
-SLIDE 19 — Modular AI skills
+SLIDE 20 — Modular AI skills
 --------------------------------------------------------------------------------
 
 WATERMARK  : NN (top-right, faint)
@@ -685,7 +759,7 @@ TAKEAWAY   : Instead of explaining everything from scratch every time, you hand
 
 
 --------------------------------------------------------------------------------
-SLIDE 20 — What is a subagent?
+SLIDE 21 — What is a subagent?
 --------------------------------------------------------------------------------
 
 WATERMARK  : NN (top-right, faint)
@@ -720,7 +794,7 @@ TAKEAWAY   : A skill tells the AI how to do a job. A subagent is a separate AI
 
 
 --------------------------------------------------------------------------------
-SLIDE 21 — Types of subagents
+SLIDE 22 — Types of subagents
 --------------------------------------------------------------------------------
 
 WATERMARK  : NN (top-right, faint)
@@ -759,10 +833,10 @@ TAKEAWAY   : A skill is a set of rules, a subagent is a separate worker. You
 
 
 --------------------------------------------------------------------------------
-SLIDE 22 — [DEMO 3] Multi-agent team in action
+SLIDE 23 — [DEMO 3] Multi-agent team in action
 --------------------------------------------------------------------------------
 
-WATERMARK  : 22 (top-right, faint)
+WATERMARK  : 23 (top-right, faint)
 PURPOSE    : Show one agent handing work to another and catching a mistake
              before the user sees it.
 
@@ -786,7 +860,7 @@ KEY LESSON : Agents catch each other's mistakes before you ever see the final
 
 
 --------------------------------------------------------------------------------
-SLIDE 23 — What is an AI "context window"?
+SLIDE 24 — What is an AI "context window"?
 --------------------------------------------------------------------------------
 
 WATERMARK  : NN (top-right, faint)
@@ -834,7 +908,7 @@ NOTE FOR THE PRESENTER: the page counts on the three size cards assume ~0.75
 
 
 --------------------------------------------------------------------------------
-SLIDE 24 — Giving AI a memory
+SLIDE 25 — Giving AI a memory
 --------------------------------------------------------------------------------
 
 WATERMARK  : NN (top-right, faint)
@@ -880,7 +954,7 @@ TAKEAWAY   : Think of memory as a notebook for your agent — it never has to as
 
 
 --------------------------------------------------------------------------------
-SLIDE 25 — Context engineering
+SLIDE 26 — Context engineering
 --------------------------------------------------------------------------------
 
 WATERMARK  : NN (top-right, faint)
@@ -930,7 +1004,7 @@ TAKEAWAY   : Think of context like giving a new employee the documents they need
 
 
 --------------------------------------------------------------------------------
-SLIDE 26 — Setting rules with AGENTS.md
+SLIDE 27 — Setting rules with AGENTS.md
 --------------------------------------------------------------------------------
 
 WATERMARK  : NN (top-right, faint)
@@ -960,10 +1034,10 @@ TAKEAWAY   : It is like hanging a rule sheet on the office wall so every worker
 
 
 --------------------------------------------------------------------------------
-SLIDE 27 — What a simple rule file looks like
+SLIDE 28 — What a simple rule file looks like
 --------------------------------------------------------------------------------
 
-WATERMARK  : 27 (top-right, faint)
+WATERMARK  : 28 (top-right, faint)
 PURPOSE    : Prove with a real, non-intimidating example that rule files need no
              special formatting.
 
@@ -986,10 +1060,10 @@ TAKEAWAY     : You don't need special formatting — simple, clear bullet points
 
 
 --------------------------------------------------------------------------------
-SLIDE 28 — AI security threat: prompt injection               [FINAL SLIDE]
+SLIDE 29 — AI security threat: prompt injection
 --------------------------------------------------------------------------------
 
-WATERMARK  : 28 (top-right, faint)
+WATERMARK  : 29 (top-right, faint)
 PURPOSE    : Show how untrusted user input can hijack an AI model's instructions,
              and give the audience a test they can run themselves.
 
@@ -1027,20 +1101,298 @@ ONE LINE TO PREVENT IT (19px, pinned to the bottom):
 ANIMATION  : Subtitle at 0.06s, the two columns at 0.16s and 0.26s, the closing
              line at 0.36s. Nothing loops.
 
+
+================================================================================
+PART 2 — BUILD THE LIVE QUIZ APP IN TEN STEPS (SLIDES 30–39) + CLOSE (40)
+================================================================================
+
+SHARED TEMPLATE (every step slide, slides 30–39)
+--------------------------------------------------------------------------------
+These ten slides share one layout, so the audience always knows where to look.
+
+FRAME      : <div class="frame step"> — smaller headline (42px, one line, the
+             descriptive half in grey) and a 14.5px purpose line underneath.
+BODY       : .swrap — two columns, 1fr / 424px, gap 34px, vertically centred in
+             the space below the headline.
+LEFT       : PROMPT card (.sprompt) — bordered white card, 14.5px copy, real
+             filenames wrapped in <code>. Six steps carry the prompt verbatim.
+             The four manual steps (3, 4, 9, 10) instead use .sprompt.na, a
+             dashed grey card reading "N/A — <step type>" so it is obvious no
+             prompt is needed.
+             WHAT TO CHECK block underneath, split by a hairline rule.
+RIGHT      : .svis — a small mock window with a header bar and one animated
+             visual per step. All ten are CSS-only, gated on .slide.active.
+
+ANIMATION  : Subtitle and left column fade up at 0.06s/0.16s, the visual at
+             0.26s, then the visual's own motion plays (rows filling, chips
+             dropping, bars growing, the lock engaging).
+
+
+--------------------------------------------------------------------------------
+SLIDE 30 — Step 1: Create the base app in AI Studio
+--------------------------------------------------------------------------------
+
+WATERMARK  : 30 (top-right, faint)
+PURPOSE    : Create the initial project structure, basic screens, and rules all
+             at once using Google AI Studio.
+
+PROMPT TO TYPE:
+             Act as a web developer. Make a working starting setup for a React +
+             TypeScript + Tailwind CSS Live Quiz WebApp.
+             Please include:
+               - A clean folder structure (components, store, assets, types).
+               - An AGENTS.md file at the root listing project rules, color
+                 theme, and app logic.
+               - A simple list of hardcoded temporary multiple-choice
+                 questions.
+               - Core working screens: Join Lobby, Live Leaderboard, Question
+                 View (showing multiple-choice questions with choices A, B, C,
+                 D), and Host Control Panel.
+
+WHAT TO CHECK:
+             Look through the generated code in AI Studio to confirm AGENTS.md,
+             the team lobby, multiple-choice questions, host panel, and live
+             leaderboard files are all generated.
+
+VISUAL     : An "AI Studio · generating" window filling with the file tree —
+             live-quiz-app/, AGENTS.md, src/components/ (4 files), src/store/
+             (2 files), src/assets/, src/types/, src/data/questions.json (12),
+             package.json. Rows appear one by one (0.5s → 1.2s), each with a
+             green dot.
+
+
+--------------------------------------------------------------------------------
+SLIDE 31 — Step 2: Add design screenshots from Pinterest
+--------------------------------------------------------------------------------
+
+WATERMARK  : 31 (top-right, faint)
+PURPOSE    : Show AI Studio pictures of your visual inspiration to set colors
+             and button styles before exporting.
+
+PROMPT TO TYPE:
+             Look at these uploaded UI screenshots from Pinterest. Keep all
+             generated features, but update the styling so the buttons, dark
+             background, and overall layout match these design images.
+
+WHAT TO CHECK:
+             Check the updated preview or component code to confirm sage green
+             accent colors and high-contrast dark themes are applied to the
+             lobby and leaderboard buttons.
+
+VISUAL     : Two reference screenshots (one light, one dark) drop into a
+             "reference · pinterest" window; half a second later the two
+             preview buttons flip from grey to sage.
+
+
+--------------------------------------------------------------------------------
+SLIDE 32 — Step 3: Download and save the files on your computer
+--------------------------------------------------------------------------------
+
+WATERMARK  : 32 (top-right, faint)
+PURPOSE    : Transfer the code files from AI Studio into a clean local project
+             folder.
+
+PROMPT TO TYPE: N/A — file management step (dashed card, no prompt needed)
+
+WHAT TO CHECK:
+             Open your local file explorer and confirm that AGENTS.md,
+             src/components/, src/data/questions.json, and src/store/ are
+             placed inside your local live-quiz-app folder.
+
+VISUAL     : Three file chips (AGENTS.md, components/, questions.json) fall
+             into a sage "live-quiz-app — C:\projects\live-quiz-app" folder
+             card, staggered 0.35s → 0.65s.
+
+
+--------------------------------------------------------------------------------
+SLIDE 33 — Step 4: Run the app on your computer
+--------------------------------------------------------------------------------
+
+WATERMARK  : 33 (top-right, faint)
+PURPOSE    : Install all project dependencies, start the dev server, and ensure
+             everything loads locally without errors.
+
+PROMPT TO TYPE: N/A — local terminal setup (dashed card, no prompt needed)
+
+WHAT TO CHECK:
+             Open http://localhost:5173 in your browser to confirm the Join
+             Lobby loads cleanly and you can navigate between screens.
+
+VISUAL     : A dark terminal window: "PS C:\live-quiz-app> npm install", "npm
+             run dev", a green "VITE ready in 412 ms", then the local URL.
+
+
+--------------------------------------------------------------------------------
+SLIDE 34 — Step 5: Add team joining & team name input
+--------------------------------------------------------------------------------
+
+WATERMARK  : 34 (top-right, faint)
+PURPOSE    : Build the player registration feature so participants can enter
+             their team names and pick an avatar.
+
+PROMPT TO TYPE:
+             Read AGENTS.md first. In TeamJoinScreen.tsx, build a form where
+             players can type their team name and select an avatar. When
+             submitted, add the team to the lobby list. Do not alter any
+             existing screen layout.
+
+WHAT TO CHECK:
+             Type a name in the team input field, click 'Join Game', and verify
+             that the team name appears inside the active lobby list.
+
+VISUAL     : A "TeamJoinScreen.tsx · preview" window: the team-name field holds
+             "Night Owls", and a sage team badge slides in from the left into
+             the "Lobby list" box at 0.6s.
+
+
+--------------------------------------------------------------------------------
+SLIDE 35 — Step 6: Add live score updates
+--------------------------------------------------------------------------------
+
+WATERMARK  : 35 (top-right, faint)
+PURPOSE    : Connect Pusher channels so scores update live on the host panel and
+             player views.
+
+APPROACH   : Pusher Channels — push instead of poll. The server triggers one
+             event and every subscribed browser receives it immediately, so there
+             is no refresh and no polling interval to tune.
+               - Create a free Pusher Channels app and copy the app key.
+               - Trigger: api/leaderboard.js publishes a "score-updated" event on
+                 the quiz-score channel when an answer is accepted. The trigger
+                 route can still be the Vercel function from step 10.
+               - Subscribe: pusher-js connects inside LiveLeaderboard.tsx and
+                 re-renders the leaderboard on every score-updated event.
+
+PROMPT TO TYPE:
+             Read AGENTS.md first. Connect Pusher to the app — trigger the score
+             event from api/leaderboard.js and subscribe to the quiz-score
+             channel with pusher-js in LiveLeaderboard.tsx — so a correct answer
+             updates the host panel and every player view without refreshing.
+
+WHAT TO CHECK:
+             Open two browser tabs side-by-side. Submit a correct answer in Tab 1
+             and confirm the Tab 2 Leaderboard updates instantly.
+
+VISUAL     : A window headed "pusher-js · quiz-score channel" with two mini
+             windows side by side — "Host panel" and "Player view". Both counters
+             and their green progress tracks fill together at 0.7s, followed by
+             the caption "Answer accepted — both screens updated" at 1.2s.
+
+
+--------------------------------------------------------------------------------
+SLIDE 36 — Step 7: Test every new feature
+--------------------------------------------------------------------------------
+
+WATERMARK  : 36 (top-right, faint)
+PURPOSE    : Test team joining and score sync right after adding them so you
+             catch issues early.
+
+PROMPT TO TYPE:
+             Read AGENTS.md first. In TeamJoinScreen.tsx, players can click the
+             submit button twice quickly. Add a simple check to disable the join
+             button immediately after the first click.
+
+WHAT TO CHECK:
+             Click the join button rapidly and confirm that it locks after one
+             click and prevents duplicate team entries.
+
+VISUAL     : A "join game · double click test" window: the black button greys
+             out at 0.8s, the three rapid-tap marks turn red, and a lock caption
+             appears at 1.1s.
+
+
+--------------------------------------------------------------------------------
+SLIDE 37 — Step 8: Clean up and polish the app
+--------------------------------------------------------------------------------
+
+WATERMARK  : 37 (top-right, faint)
+PURPOSE    : Smooth out leaderboard progress bars, adjust mobile padding, and
+             refine overall visual presentation.
+
+PROMPT TO TYPE:
+             Read AGENTS.md first. Update LiveLeaderboard.tsx so that score bars
+             grow smoothly using CSS transitions whenever team points change.
+             Make sure answer choices look clear on small mobile screens.
+
+WHAT TO CHECK:
+             Trigger a score update and watch the team leaderboard bars slide
+             smoothly to their new positions.
+
+VISUAL     : A "LiveLeaderboard.tsx · animated" window with three team bars
+             (Night Owls 78, Sage Foxes 54, Code Crew 36) that grow smoothly to
+             their new widths over 1.1s, each slightly offset.
+
+
+--------------------------------------------------------------------------------
+SLIDE 38 — Step 9: Save your final code to GitHub
+--------------------------------------------------------------------------------
+
+WATERMARK  : 38 (top-right, faint)
+PURPOSE    : Upload your tested, local project files to a remote GitHub
+             repository.
+
+PROMPT TO TYPE: N/A — version control setup (dashed card, no prompt needed)
+
+WHAT TO CHECK:
+             Visit your GitHub profile in the browser to confirm all files,
+             including AGENTS.md, are uploaded to the main branch.
+
+VISUAL     : A dark terminal running "git add .", "git commit", "git push origin
+             main", then a repository card for Yajju-Dangol / live-quiz-app slides
+             up at 1.1s tagged "updated just now" in green.
+
+
+--------------------------------------------------------------------------------
+SLIDE 39 — Step 10: Put your webapp online with Vercel
+--------------------------------------------------------------------------------
+
+WATERMARK  : 39 (top-right, faint)
+PURPOSE    : Host your application on Vercel so live players can access it from
+             their mobile devices.
+
+PROMPT TO TYPE: N/A — deployment setup (dashed card, no prompt needed)
+
+WHAT TO CHECK:
+             Open the live .vercel.app URL on your phone to confirm you can enter
+             a team name and join the live lobby.
+
+VISUAL     : A "deployment · production" window: the green deploy bar fills to
+             100%, then the URL chip live-quiz-app.vercel.app fades in at 1.2s
+beside a scannable QR square at 1.5s.
+
+
+--------------------------------------------------------------------------------
+SLIDE 40 — Thank you                                        [DARK SLIDE]
+--------------------------------------------------------------------------------
+
+WATERMARK  : 40 (top-right, faint, white on black)
+BACKGROUND : Black (#141414) — the same treatment as the welcome slide, so the
+             deck opens and closes on a dark frame.
+HEADLINE   : Thank you ("you" in dimmed white) at 74px
+SUBTITLE   : That is the whole course — questions, ideas and demos all welcome.
+CHIPS      : Concepts & fundamentals · Live build in 10 steps ·
+             AGENTS.md, skills & agents (outlined pills, translucent white)
+
+LAYOUT     : The block is centred vertically in the frame. Deliberately empty
+             otherwise — nothing competes with the sign-off.
+
+ANIMATION  : The block rises at 0.06s. Nothing loops.
+
+
 ================================================================================
 FILE INVENTORY
 ================================================================================
 
-index.html                      the deck (28 slides, all HTML/CSS/JS inline)
-claude.svg                      Claude Code logo, used on slide 11
-codex.svg                       Codex logo, used on slide 11
-google-antigravity.svg          Google Antigravity logo, used on slide 11
+index.html                      the deck (40 slides, all HTML/CSS/JS inline)
+claude.svg                      Claude Code logo, used on slide 12
+codex.svg                       Codex logo, used on slide 12
+google-antigravity.svg          Google Antigravity logo, used on slide 12
 kernel-2026-video.mp4           Intro video played on slide 1 (30.8MB)
 vercel.json                     Vercel static-host config (cleanUrls + old-URL rewrite)
 
 NOTE: the deck is served from index.html at the repository root, so Vercel needs
 no build step — the three .svg files and the .mp4 must stay in the same folder as
-index.html, because slide 11 references the logos and slide 1 the video by
+index.html, because slide 12 references the logos and slide 1 the video by
 relative path (claude.svg, codex.svg, google-antigravity.svg,
 kernel-2026-video.mp4).
 
@@ -1048,11 +1400,14 @@ kernel-2026-video.mp4).
 INTERACTIVE ELEMENTS
 ================================================================================
 
-Slide 15   "RUN DEMO" button  — replays the four-tool trace, 1.1s per step
-Slide 22   "RUN HANDOFF" button — replays the two-agent handoff, 1.25s per step
-Slide 14   MCP file tree — auto-expands on entry; no button
-Slide 3    Auto-typing composer + Generate button on entry
+Slide 16   "RUN DEMO" button  — replays the four-tool trace, 1.1s per step
+Slide 23   "RUN HANDOFF" button — replays the two-agent handoff, 1.25s per step
+Slide 26   Context file list — files fan in one by one, then the archive and
+           vendor bundles grey out; no button
+Slide 4    Auto-typing composer + Generate button on entry
 Slide 1    Intro video — plays on entry, pauses when you leave, native controls
+Deck-wide  Type scaler — + / - for all text, Shift for headings only, Alt for
+           body only, 0 to reset; percentage is remembered between reloads
 
 Every slide resets its demo state when you navigate away and returns to it.
 
