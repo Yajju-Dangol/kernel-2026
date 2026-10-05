@@ -156,7 +156,7 @@ SLIDE 3 — Welcome to AI-Assisted Coding & AI Agents            [DARK SLIDE]
 --------------------------------------------------------------------------------
 
 WATERMARK  : 03 (top-right, faint)
-BACKGROUND : Black (#141414) with an oversized ghosted "02" in the top right.
+BACKGROUND : Black (#141414) with an oversized ghosted "03" in the top right.
 
 HEADLINE   : Welcome to AI-Assisted Coding & AI Agents
              ("AI-Assisted" rendered in dimmed white)
@@ -1149,6 +1149,21 @@ PROMPT TO TYPE:
                  View (showing multiple-choice questions with choices A, B, C,
                  D), and Host Control Panel.
 
+             Match the design reference and guide exactly from the attached
+             image.
+
+             Live updates from the start:
+               - Use Pusher: pusher-js in the browser, pusher on the server.
+               - One channel called quiz-score; every player screen and the host
+                 panel subscribe to it.
+               - When a team answers correctly, trigger a score-updated event so
+                 scores appear with no refresh.
+
+             No colour or button values are spelled out here — the design
+             reference image carries them, and step 31 is where the screenshots
+             are uploaded. Step 35 expands on the Pusher wiring rather than
+             introducing it again.
+
 WHAT TO CHECK:
              Look through the generated code in AI Studio to confirm AGENTS.md,
              the team lobby, multiple-choice questions, host panel, and live
@@ -1373,6 +1388,13 @@ SUBTITLE   : That is the whole course — questions, ideas and demos all welcome
 CHIPS      : Concepts & fundamentals · Live build in 10 steps ·
              AGENTS.md, skills & agents (outlined pills, translucent white)
 
+ACTIONS    : Two pill links under the chips.
+             HANDBOOK  → opens the student handbook in a new tab
+               https://docs.google.com/document/d/1-N5vJai6d8SwR1W-pWyIPhrA4bHeMJcH1afGbQsnmSc/edit?usp=sharing
+             AGENTIC CODING PDF → downloads Practical-Vibe-Coding-With-AI.pdf
+             (9.2MB, sits next to index.html). Outlined white for the link,
+             filled sage for the download, each with a small ↗ / ↓ glyph.
+
 LAYOUT     : The block is centred vertically in the frame. Deliberately empty
              otherwise — nothing competes with the sign-off.
 
@@ -1388,13 +1410,17 @@ claude.svg                      Claude Code logo, used on slide 12
 codex.svg                       Codex logo, used on slide 12
 google-antigravity.svg          Google Antigravity logo, used on slide 12
 kernel-2026-video.mp4           Intro video played on slide 1 (30.8MB)
+Practical-Vibe-Coding-With-AI.pdf  "Agentic coding PDF" download, slide 40 (9.2MB)
+STUDENT-HANDBOOK.md             Source markdown for the handbook document
 vercel.json                     Vercel static-host config (cleanUrls + old-URL rewrite)
 
 NOTE: the deck is served from index.html at the repository root, so Vercel needs
-no build step — the three .svg files and the .mp4 must stay in the same folder as
-index.html, because slide 12 references the logos and slide 1 the video by
-relative path (claude.svg, codex.svg, google-antigravity.svg,
-kernel-2026-video.mp4).
+no build step — the .svg files, the .mp4 and the .pdf must stay in the same
+folder as index.html, because slide 12 references the logos, slide 1 the video
+and slide 40 the PDF by relative path (claude.svg, codex.svg,
+google-antigravity.svg, kernel-2026-video.mp4,
+Practical-Vibe-Coding-With-AI.pdf). The filename is case-sensitive on Vercel —
+keep the href exactly as written.
 
 ================================================================================
 INTERACTIVE ELEMENTS

@@ -753,6 +753,11 @@ body.fs .frame{box-shadow:none}
 
 /* ============ SLIDE 8 ============ */
 .wiring{margin-top:36px;display:grid;grid-template-columns:300px 1fr 260px;gap:0;align-items:center}
+/* slide 15 — wider tool boxes: the icon sits above the text so the words
+   get the whole box instead of a 40px column beside it */
+[data-i="15"] .wiring{grid-template-columns:284px 1fr 372px}
+[data-i="15"] .tool{flex-direction:column;align-items:flex-start;gap:9px;padding:14px 15px}
+[data-i="15"] .tool span{margin-top:3px}
 .win{border:1px solid var(--line);border-radius:16px;padding:18px;background:#fff}
 .win .wt{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);margin-bottom:14px}
 .bubble{background:var(--sage-soft);border-radius:12px;padding:10px 12px;font-size:12.5px;color:#3d4a38;margin-bottom:8px}
@@ -1019,6 +1024,13 @@ body.fs .frame{box-shadow:none}
 .byebye .h-title{font-size:74px;max-width:none}
 .byebye .examples{margin-top:30px}
 .slide.dark .ex{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.22);color:rgba(255,255,255,.82)}
+.bye-actions{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
+.bye-actions .act{display:inline-flex;align-items:center;gap:9px;text-decoration:none;
+  border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:13px 22px;
+  font-size:12.5px;letter-spacing:.02em;color:#fff;transition:background .2s,border-color .2s}
+.bye-actions .act:hover{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.6)}
+.bye-actions .act.dl{background:var(--sage);border-color:var(--sage);color:#1d1d18}
+.bye-actions .act.dl:hover{background:#fff;border-color:#fff}
 
 /* ============ SLIDE 29 — PROMPT INJECTION ============ */
 .piwrap{display:grid;grid-template-columns:1fr 448px;gap:40px;margin-top:22px;align-items:start}
@@ -2596,6 +2608,15 @@ Sign as <span class="m">"Acme Support"</span>. Never share data.
             <li>A simple list of hardcoded temporary multiple-choice questions.</li>
             <li>Core working screens: Join Lobby, Live Leaderboard, Question View (showing multiple-choice questions with choices A, B, C, D), and Host Control Panel.</li>
           </ul>
+
+          <p style="margin-top:13px">Match the design reference and guide exactly from the attached image.</p>
+
+          <p class="sub" style="margin-top:13px">Live updates from the start:</p>
+          <ul>
+            <li>Use Pusher: <code>pusher-js</code> in the browser, <code>pusher</code> on the server.</li>
+            <li>One channel called <code>quiz-score</code>; every player screen and the host panel subscribe to it.</li>
+            <li>When a team answers correctly, trigger a <code>score-updated</code> event so scores appear with no refresh.</li>
+          </ul>
         </div>
         <div class="scheck">
           <span class="sk">What to check</span>
@@ -2917,6 +2938,11 @@ Sign as <span class="m">"Acme Support"</span>. Never share data.
         <span class="ex">Concepts &amp; fundamentals</span>
         <span class="ex">Live build in 10 steps</span>
         <span class="ex">AGENTS.md, skills &amp; agents</span>
+      </div>
+
+      <div class="bye-actions">
+        <a class="act" href="https://docs.google.com/document/d/1-N5vJai6d8SwR1W-pWyIPhrA4bHeMJcH1afGbQsnmSc/edit?usp=sharing" target="_blank" rel="noopener">Handbook <span aria-hidden="true">&#8599;</span></a>
+        <a class="act dl" href="Practical-Vibe-Coding-With-AI.pdf" download>Agentic coding PDF <span aria-hidden="true">&#8595;</span></a>
       </div>
     </div>
   </div>
